@@ -1,5 +1,6 @@
 package com.example.developpementmobproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -20,6 +21,7 @@ import com.example.developpementmobproject.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -56,5 +58,9 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_layout,fragment);
         fragmentTransaction.commit();
     }
+
+
+
+
 
 }
