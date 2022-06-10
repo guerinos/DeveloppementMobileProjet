@@ -11,29 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="300dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginEnd="56dp"
-            android:layout_marginBottom="248dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <Button
             android:id="@+id/button6"
             android:layout_width="262dp"
             android:layout_height="89dp"
-            android:layout_marginStart="111dp"
-            android:layout_marginTop="192dp"
-            android:layout_marginEnd="111dp"
-            android:layout_marginBottom="443dp"
-            android:text="Add Match"
             android:backgroundTint="@color/white"
-            android:drawableStart="@drawable/ic_baseline_add_24"
+            android:text="Add Match"
+            android:drawableLeft="@drawable/ic_baseline_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

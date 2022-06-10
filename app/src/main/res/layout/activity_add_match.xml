@@ -6,4 +6,93 @@
     android:layout_height="match_parent"
     tools:context=".AddMatchActivity">
 
+
+    <EditText
+        android:id="@+id/titre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Titre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/joueur_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Joueur 1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.247"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/joueur_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Joueur 2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.368"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Score"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.599"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/temps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Temps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.482"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/lieu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lieu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.724"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="313dp"
+        android:layout_height="55dp"
+        android:drawableRight="@drawable/ic_baseline_sports_baseball_24"
+        android:text="Formulaire Match"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.039" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="302dp"
+        android:layout_height="46dp"
+        android:backgroundTint="@color/b"
+        android:text="Enregistrer le match"
+        android:drawableLeft="@drawable/ic_baseline_save_alt_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.879" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
