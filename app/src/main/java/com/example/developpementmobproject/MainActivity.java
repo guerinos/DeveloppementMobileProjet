@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
 
+
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
@@ -57,30 +58,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
 
-                try {
-                    Connection connection = DriverManager.getConnection("jdbc:mysql://10.0.2.2:3306/tennisMatch", "root", "");
-
-                    String sql = "SELECT * FROM formulairetable";
-                    PreparedStatement statement = connection.prepareStatement(sql);
-                    ResultSet resultSet = statement.executeQuery();
-                    while (resultSet.next()) {
-                        String first = resultSet.getString("col1");
-                        String second = resultSet.getString("col2");
-
-                        Log.d("DB", first);
-                        Log.d("DB", second);
-
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }}).start();
     }
 
     private void replaceFragment(Fragment fragment){

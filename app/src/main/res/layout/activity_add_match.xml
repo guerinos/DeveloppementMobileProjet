@@ -44,14 +44,14 @@
         android:hint="Score"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.599"
+        app:layout_constraintVertical_bias="0.59"
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/temps"
+        android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Temps"
+        android:hint="Date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.482"
@@ -59,13 +59,15 @@
 
     <EditText
         android:id="@+id/lieu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="233dp"
+        android:layout_height="50dp"
         android:hint="Lieu"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.724"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.712" />
 
     <TextView
         android:id="@+id/textView"
@@ -82,17 +84,31 @@
         app:layout_constraintVertical_bias="0.039" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonSaveMatch"
         android:layout_width="302dp"
         android:layout_height="46dp"
         android:backgroundTint="@color/b"
-        android:text="Enregistrer le match"
         android:drawableLeft="@drawable/ic_baseline_save_alt_24"
+        android:text="Enregistrer le match"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.879" />
+        app:layout_constraintVertical_bias="0.938" />
+
+    <Button
+        android:id="@+id/buttonLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="6dp"
+        android:text="Location"
+        android:backgroundTint="@color/b"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.707" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
