@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
@@ -22,6 +23,11 @@ import com.example.developpementmobproject.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -50,6 +56,31 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         });
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://10.0.2.2:3306/tennisMatch", "root", "");
+
+                    String sql = "SELECT * FROM formulairetable";
+                    PreparedStatement statement = connection.prepareStatement(sql);
+                    ResultSet resultSet = statement.executeQuery();
+                    while (resultSet.next()) {
+                        String first = resultSet.getString("col1");
+                        String second = resultSet.getString("col2");
+
+                        Log.d("DB", first);
+                        Log.d("DB", second);
+
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }}).start();
     }
 
     private void replaceFragment(Fragment fragment){
