@@ -64,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.stat:
                     replaceFragment(new StatFragment());
                     break;
+                case R.id.photo:
+                    replaceFragment(new PhotoFragment());
+                    break;
+
             }
 
             return true;
