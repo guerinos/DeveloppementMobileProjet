@@ -9,7 +9,11 @@
         android:icon="@drawable/ic_baseline_list_24"
         android:id="@+id/ListMatch"/>
 
-    <item android:title="Stat"
+    <item android:title="AddList"
         android:icon="@drawable/ic_baseline_sports_tennis_24"
         android:id="@+id/stat"/>
+
+    <item android:title="Photo"
+        android:icon="@drawable/ic_baseline_camera_alt_24"
+        android:id="@+id/photo"/>
 </menu>
