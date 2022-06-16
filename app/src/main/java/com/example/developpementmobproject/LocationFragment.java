@@ -4,9 +4,22 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +36,7 @@ public class LocationFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
 
     public LocationFragment() {
         // Required empty public constructor
@@ -49,16 +63,61 @@ public class LocationFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_location, container, false);
+        View v =  inflater.inflate(R.layout.fragment_location, container, false);
+        ListView listView = (ListView) v.findViewById(R.id.listTitle);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://10.0.2.2:3306/tennismatch", "root", "");
+
+                    String sql = "SELECT title FROM formulairetable";
+                    PreparedStatement statement = connection.prepareStatement(sql);
+                    ResultSet result = statement.executeQuery();
+
+
+                    //Stores properties of a ResultSet object, including column count
+                    ResultSetMetaData rsmd = result.getMetaData();
+                    int columnCount = rsmd.getColumnCount();
+
+                    ArrayList<String> arrayResult = new ArrayList<>(columnCount);
+                    while (result.next()) {
+                        int i = 1;
+                        while (i <= columnCount) {
+                            arrayResult.add(result.getString(i++));
+                        }
+                    }
+
+                    new Handler(Looper.getMainLooper()).post(new Runnable(){
+                        @Override
+                        public void run() {
+                            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, arrayResult);
+                            listView.setAdapter(arrayAdapter);
+                        }
+                    });
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }}).start();
+        return v;
+
     }
+
 }

@@ -1,6 +1,7 @@
 package com.example.developpementmobproject;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -22,12 +23,20 @@ import com.example.developpementmobproject.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -40,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         replaceFragment(new HomeFragment());
 
 
+
+
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
@@ -47,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.home:
                     replaceFragment(new HomeFragment());
                     break;
-                case R.id.location:
+                case R.id.ListMatch:
                     replaceFragment(new LocationFragment());
                     break;
                 case R.id.stat:
@@ -58,8 +69,9 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
-
     }
+
+
 
     private void replaceFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
