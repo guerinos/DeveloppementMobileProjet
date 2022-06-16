@@ -32,7 +32,7 @@ import java.text.SimpleDateFormat;
 public class AddMatchActivity extends AppCompatActivity {
     TextView textView;
     Button button;
-    String localisationMatch = "";
+    String localisationMatch = "0,0";
 
 
     @SuppressLint("SetTextI18n")
@@ -55,11 +55,13 @@ public class AddMatchActivity extends AppCompatActivity {
         locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
 
+
+
         button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        textView.setText(locationListener.getLatitude() + "    "  + locationListener.getLongitude());
+                        textView.setText(locationListener.getLatitude() + "," + locationListener.getLongitude());
                         localisationMatch = ""+ locationListener.getLatitude() + "," + locationListener.getLongitude() + "";
                     }
                 });

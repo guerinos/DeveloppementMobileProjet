@@ -1,5 +1,6 @@
 package com.example.developpementmobproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,8 +10,10 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -107,6 +110,16 @@ public class LocationFragment extends Fragment {
                         public void run() {
                             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, arrayResult);
                             listView.setAdapter(arrayAdapter);
+
+                            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                    String match = adapterView.getItemAtPosition(i).toString();
+                                    Intent detailsMatchActivityIntent = new Intent(getActivity(), DetailActivity.class);
+                                    detailsMatchActivityIntent.putExtra("matchTitleExtra", match);
+                                    startActivity(detailsMatchActivityIntent);
+                                }
+                            });
                         }
                     });
 
@@ -116,10 +129,9 @@ public class LocationFragment extends Fragment {
                 }
 
             }}).start();
+
         return v;
-
     }
-
 
 
 }
